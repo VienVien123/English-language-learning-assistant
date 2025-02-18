@@ -1,7 +1,9 @@
-./venv/Scripts/Activate.ps1
-pip install -r requirements.txt
++ ./venv/Scripts/Activate.ps1
 
-python manage.py makemigrations
-python manage.py migrate
++ pip install -r requirements.txt
 
-python manage.py runserver
++ python manage.py makemigrations
+
++ python manage.py migrate
+
++ python manage.py runserver

@@ -1,0 +1,99 @@
+{% extends "dolphin/base.html" %}
+{% load static %}
+{% load socialaccount %}
+
+{% block register %}
+
+<div class="form-container">
+    <h2 class="form-title">Create Your Account</h2>
+
+    <!-- Hiển thị thông báo lỗi -->
+    {% if registerform.errors %}
+        <div class="error-message">
+            Please correct the errors below.
+        </div>
+    {% endif %}
+
+    <form method="POST" class="register-form" autocomplete='off'>
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label for="{{ registerform.first_name.id_for_label }}">First Name</label>
+            {{ registerform.first_name }}
+            {% if registerform.first_name.errors %}
+                <div class="error-message">
+                    {{ registerform.first_name.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-group">
+            <label for="{{ registerform.last_name.id_for_label }}">Last Name</label>
+            {{ registerform.last_name }}
+            {% if registerform.last_name.errors %}
+                <div class="error-message">
+                    {{ registerform.last_name.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-group">
+            <label for="{{ registerform.username.id_for_label }}">Username</label>
+            {{ registerform.username }}
+            {% if registerform.username.errors %}
+                <div class="error-message">
+                    {{ registerform.username.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-group">
+            <label for="{{ registerform.email.id_for_label }}">Email</label>
+            {{ registerform.email }}
+            {% if registerform.email.errors %}
+                <div class="error-message">
+                    {{ registerform.email.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-group">
+            <label for="{{ registerform.password1.id_for_label }}">Password</label>
+            {{ registerform.password1 }}
+            {% if registerform.password1.errors %}
+                <div class="error-message">
+                    {{ registerform.password1.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="input-group">
+            <label for="{{ registerform.password2.id_for_label }}">Confirm Password</label>
+            {{ registerform.password2 }}
+            {% if registerform.password2.errors %}
+                <div class="error-message">
+                    {{ registerform.password2.errors|striptags }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn-submit">Register</button>
+    </form>
+    
+    <br>
+
+    <div class="google-btn-container">
+        <h3>OR</h3>
+        <a href="{% provider_login_url 'google' %}" class="google-btn">
+            <img src="{% static 'dolphin/img/google-icon.png' %}" alt="Google logo" class="google-icon">
+            Sign up with Google
+        </a>
+    </div>
+
+
+    <p class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Login here</a>
+    </p>
+</div>
+
+{% endblock register %}

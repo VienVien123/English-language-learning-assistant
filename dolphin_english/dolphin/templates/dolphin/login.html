@@ -1,0 +1,43 @@
+{% extends "dolphin/base.html" %}
+{% load static %}
+{% load socialaccount %}
+
+{% block login %}
+
+<div class="form-container">
+    <h2 class="form-title">Login</h2>
+    {% if loginform.errors %}
+        <div class="error-message">
+            Invalid username or password. Please try again
+        </div>
+    {% endif %}
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="input-group">
+            <label for="{{loginform.username.id_for_label}}">Username</label>
+            {{loginform.username}}
+        </div>
+
+        <div class="input-group">
+            <label for="{{loginform.password.id_for_label}}">Password</label>
+            {{loginform.password}}
+        </div>
+
+        <button type="submit" class="btn-submit">Login</button>
+    </form>
+
+    <br>
+
+    <div class="google-btn-container">
+        <h3>OR</h3>
+        <a href="{% provider_login_url 'google' %}" class="google-btn">
+            <img src="{% static 'dolphin/img/google-icon.png' %}" alt="Google logo" class="google-icon">
+            Login with Google
+        </a>
+    </div>
+    <p class="signup-link">
+        Don't have an account? <a href="{% url 'register' %}">Sign up here</a>
+    </p>
+</div>
+
+{% endblock login %}

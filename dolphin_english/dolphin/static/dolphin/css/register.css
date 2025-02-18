@@ -1,0 +1,211 @@
+/* ===========================
+   Cập nhật CSS cho Form Đăng Ký
+   =========================== */
+
+/* Định dạng khung chính của form */
+.form-container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 420px;
+    text-align: center;
+
+    /* Đặt form nằm giữa màn hình nhưng dưới header */
+    position: absolute;
+    top: 120px; /* Đẩy form xuống dưới header */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Hiệu ứng xuất hiện nhẹ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Tiêu đề */
+.form-title {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Nhóm input */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+}
+
+/* Nút đăng ký */
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Đường dẫn đăng nhập */
+.login-link {
+    font-size: 12px;
+    margin-top: 15px;
+    color: #7f8c8d;
+}
+
+.login-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    color: #1d6fa5;
+    text-decoration: underline;
+}
+
+/* ===========================
+   Responsive cho Mobile
+   =========================== */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%;
+        padding: 20px;
+        top: 100px;
+    }
+}
+
+/* ===========================
+   Thông báo lỗi
+   =========================== */
+/* ===========================
+   CSS Cho Thông Báo Lỗi
+   =========================== */
+
+/* Định dạng chung cho thông báo lỗi */
+.error-message {
+    color: #e74c3c; /* Màu đỏ nổi bật */
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #ffecec; /* Nền nhạt */
+    border-left: 4px solid #e74c3c; /* Viền trái đỏ */
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Định dạng khi có nhiều lỗi cùng lúc */
+.error-message ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.error-message ul li {
+    padding-left: 16px;
+    position: relative;
+    font-size: 13px;
+    color: #d63031;
+}
+
+/* Thêm biểu tượng trước mỗi lỗi */
+.error-message ul li::before {
+    content: "⚠️";
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+}
+
+/* Định dạng cho lỗi toàn cục (non-field errors) */
+.non-field-errors {
+    color: #d63031;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px;
+    background-color: #ffecec;
+    border-left: 4px solid #e74c3c;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Hiệu ứng hover */
+.error-message:hover {
+    background-color: #ffe0e0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+/* ===========================
+   CSS cho Google
+   =========================== */
+   .google-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.google-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+    border-color: black;
+    border-style: solid;
+}
+
+.google-btn:hover {
+    background-color: #c23321;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}

@@ -1,155 +1,120 @@
 /* Reset CSS */
-*,
-*::before,
-*::after {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
   height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
 }
-
-/* 🔹 Header cố định trên cùng */
-#header {
+/* header */
+header {
   background-color: #6db8f2;
-  width: 100%;
-  height: 60px;
+  padding: 0px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
 }
-
-/* Chứa nội dung header */
-#container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-/* Logo */
-.nav-logo-web img {
-  width: 50px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Menu điều hướng */
-.nav-menu {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.nav-menu li a {
+header a {
   text-decoration: none;
-  color: black;
-  font-size: 16px;
-  font-weight: normal;
-  transition: color 0.3s;
+  color: white;
+  font-weight: bold;
+}
+#logo {
+  height: 60px;
+  margin-right: 0px;
 }
 
-.nav-menu li a:hover {
-  color: red;
+#main-title {
+  font-size: 20px;
+}
+
+#main-title a {
+  text-decoration: none;
+  color: white;
+}
+
+#main-title a:hover {
+  color: rgb(8, 69, 199);
+}
+
+#header-item {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: 2%;
+  flex-wrap: wrap;
+}
+
+.link-item a:hover {
+  color: rgb(8, 69, 199);
 }
 
 /* 🔹 Đảm bảo nội dung không bị header che khuất */
-#content {
-  flex: 1;
-  margin-top: 60px; /* Giữ khoảng cách với header */
-  padding-bottom: 60px; /* Đảm bảo footer không che nội dung */
-  background-color: #f8f9fa;
-}
-
-/* 🔹 Footer cố định dưới cùng */
-#footer {
-  background-color: #6db8f2;
-  padding: 20px 0;
-  text-align: center;
-  border-top: 2px solid black;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-/* Container chính của footer */
-#footer-container {
+.page-content {
   display: flex;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: auto;
-  padding-bottom: 35px !important;
-  /* margin-bottom: 600px; */
+  flex-direction: column;
+  min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao màn hình */
 }
 
-/* Mỗi cột trong footer */
-.footer-column {
-  flex: 1;
+/* Nội dung chính sẽ tự giãn chiếm không gian còn lại */
+.main-content {
+  flex: 1; /* Giúp phần nội dung tự giãn để đẩy footer xuống */
+}
+
+/* footer */
+footer {
+  background-color: #c7cbcf;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
   text-align: left;
-  padding: 5px 20px;
+  padding-bottom: 20px;
 }
 
-/* Định dạng danh sách */
+.footer-column {
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .footer-column ul {
   list-style-type: none;
   padding: 0;
 }
 
-/* Định dạng các mục danh sách */
-.footer-column li {
-  margin: 5px 0;
-  font-size: 12px;
-}
-
-/* Định dạng liên kết */
-.footer-column a {
-  text-decoration: none;
-  color: black;
-  font-size: 10px;
+.footer-column ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
   transition: color 0.3s;
 }
 
-.footer-column a:hover {
-  color: red;
+.footer-column ul li:hover {
+  color: #0501f4; /* Màu vàng cam khi hover */
+  transform: translateX(5px);
+  transition: 0.3s;
 }
 
-/* Dòng chữ bản quyền */
-/* .footer-bottom {
-  text-align: center;
-  padding-top: 10px;
-  font-size: 12px;
-  color: white;
-  background-color: #1c1c1c;
-  padding: 15px 0;
-} */
-
 .footer-bottom {
-  bottom: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
-  padding-top: 10px;
-  font-size: 12px;
-  color: white;
   padding: 15px 0;
-  background-color: black;
+  font-size: 13px;
+  border-top: 1px solid #7f8c8d;
 }
 
 @media (max-width: 768px) {
-  #footer-container {
+  #footer-content {
     flex-direction: column;
     text-align: center;
   }
@@ -159,15 +124,3 @@ html, body {
   }
 }
 
-#footer {
-  background-color: #6db8f2;
-  padding: 50px 0;
-  text-align: center;
-  border-top: 2px solid black;
-  /* width: 100%; */
-  min-height: auto;
-}
-
-#footer .footer-column a{
-  font-size: 16px;
-}

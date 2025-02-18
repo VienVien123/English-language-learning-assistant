@@ -1,89 +1,18 @@
 {% extends "dolphin/base.html" %}
 {% load static %}
 {% block listen %}
-<h1>  All topics</h1>
+<h1> All topics</h1>
 <div class="topics-container">
-    <!--  Topic 1 -->
-    <div class="topic-card">
-        <img src="https://dailydictation.com/images/dd-stories.jpg" alt="Short Stories">
-        <div class="topic-info">
-            <a href="#" class="topic-title">Short Stories</a>
-            <p>Levels: A1-C1</p>
-            <p>📖 289 lessons</p>
+    {% for topic in topics %}
+        <div class="topic-card">
+            <img src="{% static topic.image %}" alt="{{ topic.title }}">
+            <div class="topic-info">
+                <a href="#" class="topic-title">{{ topic.title }}</a>
+                <p>Levels: {{ topic.levels }}</p>
+                <p>📖 {{ topic.lessons }} lessons</p>
+            </div>
         </div>
-    </div>
-
-    <!--  Topic 2 -->
-    <div class="topic-card">
-        <img src="https://dailydictation.com/images/dd-con.jpg" alt="Conversations">
-        <div class="topic-info">
-            <a href="#" class="topic-title">Conversations</a>
-            <p>Levels: A1-B1</p>
-            <p>📖 100 lessons</p>
-        </div>
-    </div>
-
-
-
-    <!--  Topic 4 -->
-    <div class="topic-card">
-        <img src="https://dailydictation.com/images/dd-toeic.jpg" alt="TOEIC Listening">
-        <div class="topic-info">
-            <a href="#" class="topic-title">TOEIC Listening</a>
-            <p>Levels: A2-C1</p>
-            <p>📖 600 lessons</p>
-        </div>
-    </div>
-
-    <!--  Topic 5 -->
-    <div class="topic-card">
-        <img src="https://dailydictation.com/images/dd-ielts.jpg" alt="IELTS Listening">
-        <div class="topic-info">
-            <a href="#" class="topic-title">IELTS Listening</a>
-            <p>Levels: B1-C2</p>
-            <p>📖 328 lessons</p>
-        </div>
-    </div>
-
-    <!--  Topic 9 -->
-    <div class="topic-card">
-        <img src="https://dailydictation.com/images/dd-toefl.jpg" alt="TOEFL Listening">
-        <div class="topic-info">
-            <a href="#" class="topic-title">TOEFL Listening</a>
-            <p>Levels: B1-C2</p>
-            <p>📖 54 lessons</p>
-        </div>
-    </div>
-
-    <!--  Topic 10 -->
-    <div class="topic-card">
-        <img src="	https://dailydictation.com/images/dd-ipa.jpeg" alt="IPA">
-        <div class="topic-info">
-            <a href="#" class="topic-title">IPA</a>
-            <p>Levels: A1</p>
-            <p>📖 42 lessons</p>
-        </div>
-    </div>
-
-    <!--  Topic 11 -->
-    <div class="topic-card">
-        <img src="	https://dailydictation.com/images/dd-numbers.jpg" alt="Numbers">
-        <div class="topic-info">
-            <a href="#" class="topic-title">Numbers</a>
-            <p>Levels: A1</p>
-            <p>📖 9 lessons</p>
-        </div>
-    </div>
-
-    <!--  Topic 12 -->
-    <div class="topic-card">
-        <img src="	https://dailydictation.com/images/dd-names.jpg" alt="Spelling Names">
-        <div class="topic-info">
-            <a href="#" class="topic-title">Spelling Names</a>
-            <p>Levels: A1</p>
-            <p>📖 6 lessons</p>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock listen %}
